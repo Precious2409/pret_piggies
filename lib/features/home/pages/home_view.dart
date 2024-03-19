@@ -3,11 +3,14 @@ import 'package:pret_piggies/features/home/widgets/my_todo_section.dart';
 import 'package:pret_piggies/features/home/widgets/saving_details_card.dart';
 import 'package:pret_piggies/features/home/widgets/suggestions_sections.dart';
 import 'package:pret_piggies/features/home/widgets/top_savings_section.dart';
+import 'package:pret_piggies/features/home/widgets/user_balance_card.dart';
 import 'package:pret_piggies/features/home/widgets/vetted_opportunities_section.dart';
+import 'package:pret_piggies/features/invest/widgets/invest_details_card.dart';
 
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +46,7 @@ class HomeView extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(16.0),
         children: [
-          SavingDetailsCard(),
+          UserBalanceDetails(),
           MyTodoSection(),
           TopSavingsSection(),
           SuggestionSection(),
@@ -61,7 +64,4 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-
-
 

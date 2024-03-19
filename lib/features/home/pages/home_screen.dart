@@ -22,7 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      body: listOfPages[selectedIndex],
+      body: IndexedStack(
+        children: listOfPages,
+        index: selectedIndex,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         unselectedItemColor: Colors.black,

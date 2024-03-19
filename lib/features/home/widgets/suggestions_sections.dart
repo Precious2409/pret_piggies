@@ -21,7 +21,7 @@ class SuggestionSection extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 8),
-            height: 80,
+            height: 100,
             child: ListView(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,

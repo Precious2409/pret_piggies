@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pret_piggies/features/home/widgets/hide_todo_sheet.dart';
 import 'package:pret_piggies/features/home/widgets/my_todo_item.dart';
 
 class MyTodoSection extends StatelessWidget {
   const MyTodoSection({
     super.key,
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +27,14 @@ class MyTodoSection extends StatelessWidget {
               ),
               TextButton(
                   onPressed: (){
-
-                  },
+                    showModalBottomSheet(
+                        context: context,
+                        showDragHandle: true,
+                        builder: (context){
+                          return HideTodoSheet();
+                        },
+                    );
+                    },
                   child:
                   Row(
                     children: [
@@ -44,7 +52,7 @@ class MyTodoSection extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 80,
+            height: 140,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pret_piggies/features/invest/pages/explore_investments.dart';
 
 class VettedOpportunitiesSection extends StatelessWidget {
   const VettedOpportunitiesSection({super.key});
@@ -23,11 +24,19 @@ class VettedOpportunitiesSection extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context){
+                           return ExploreInvestmentsPage();
+                          }
+                          )
+                      );
+                    },
                     child: Row(
                       children: [
                         Text("Find more"),
-                        Icon(Icons.arrow_forward_ios)
+                        Icon(Icons.arrow_forward_ios,size: 18,)
                       ],
                     ),
                 ),

@@ -101,6 +101,7 @@ class TopSavingsSection extends StatelessWidget {
               onPressed: (){},
               child: Text("FUND"),
             ),
+            contentPadding: EdgeInsets.zero,
           )
         ],
       ) ,

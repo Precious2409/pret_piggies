@@ -42,7 +42,7 @@ class MyTodoItem extends StatelessWidget {
             onPressed: onPressed,
             icon: Icon(Icons.arrow_forward_ios_rounded, size: 20,),
             style: IconButton.styleFrom(
-              backgroundColor: Colors.blueGrey,
+              backgroundColor: Colors.grey.shade300,
             ),
           )
         ],

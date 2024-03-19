@@ -1,10 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:pret_piggies/features/home/widgets/vetted_opportunities_section.dart';
+import 'package:pret_piggies/features/invest/widgets/invest_details_card.dart';
+import 'package:pret_piggies/features/invest/widgets/tab_section.dart';
 
 class InvestView extends StatelessWidget {
   const InvestView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Invest");
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("My Investments"),
+        centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: (){},
+              icon: Icon(Icons.info_outline_rounded),
+          )
+        ],
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(16),
+        children: [
+          InvestDetailsCard(),
+          Divider(),
+          VettedOpportunitiesSection(),
+          TabSection(),
+        ],
+
+      ),
+    );
   }
 }

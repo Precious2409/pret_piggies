@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "283513460584",
+    "project_id": "pretpiggies",
+    "storage_bucket": "pretpiggies.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283513460584:android:a76f386285ede86b32a8dd",
+        "android_client_info": {
+          "package_name": "com.example.pret_piggies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_tSYOER3NOXl9CuQBTMBbCKc1Ii7rzes"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

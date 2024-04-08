@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:pret_piggies/utils.dart';
 
 
 class SavingDetailsCard extends StatelessWidget {
@@ -10,6 +12,7 @@ class SavingDetailsCard extends StatelessWidget {
   final String balance;
   final Widget topRightWidget;
   final Function()? onClick;
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +59,7 @@ class SavingDetailsCard extends StatelessWidget {
                   ),
                   ),
                   Text(
-                    balance,
+                    "${getNaira()}$balance",
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: 20,

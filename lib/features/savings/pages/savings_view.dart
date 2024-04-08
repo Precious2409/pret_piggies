@@ -3,6 +3,7 @@ import 'package:pret_piggies/features/home/widgets/saving_details_card.dart';
 import 'package:pret_piggies/features/savings/pages/quick_save_page.dart';
 import 'package:pret_piggies/features/savings/widgets/flexible_savings_section.dart';
 import 'package:pret_piggies/features/savings/widgets/strict_savings_section.dart';
+import 'package:pret_piggies/utils.dart';
 
 class SavingsView extends StatelessWidget {
   const SavingsView({super.key});
@@ -30,7 +31,7 @@ class SavingsView extends StatelessWidget {
         padding: EdgeInsets.all(16),
         children:[
               SavingDetailsCard(
-                balance: "\$24000",
+                balance: "${getNaira}24000",
                 topRightWidget: Chip(
                     label: Text(
                         "up to 13% returns",
@@ -38,7 +39,7 @@ class SavingsView extends StatelessWidget {
                       color: Colors.white
                     ),
                     ),
-                  backgroundColor: Colors.black,
+                  backgroundColor: Colors.black, 
                   shape: StadiumBorder(),
                 ),
                 onClick: (){

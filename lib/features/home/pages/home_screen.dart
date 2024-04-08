@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pret_piggies/features/account/pages/account_view.dart';
+import 'package:pret_piggies/features/home/bloc/home_bloc.dart';
+import 'package:pret_piggies/features/home/bloc/home_state.dart';
 import 'package:pret_piggies/features/home/pages/home_view.dart';
 import 'package:pret_piggies/features/invest/pages/invest_view.dart';
 import 'package:pret_piggies/features/savings/pages/savings_view.dart';
@@ -21,6 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context){
+    HomeBloc homeBloc = context.watch<HomeBloc>();
+    HomeState homeState = homeBloc.state;
+    int selectedIndex = homeState.tabIndex;
+
     return Scaffold(
       body: IndexedStack(
         children: listOfPages,
@@ -33,9 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
         showSelectedLabels: true,
         showUnselectedLabels: true,
         onTap: (value) {
-          setState(() {
-            selectedIndex = value;
-          });
+          homeBloc.updateTabIndex(value);
         },
         items: [
           BottomNavigationBarItem(

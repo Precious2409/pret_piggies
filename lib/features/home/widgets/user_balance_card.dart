@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pret_piggies/features/home/bloc/home_bloc.dart';
+import 'package:pret_piggies/features/home/bloc/home_state.dart';
 import 'package:pret_piggies/features/invest/widgets/invest_details_card.dart';
 
 import 'saving_details_card.dart';
@@ -23,6 +26,8 @@ class _UserBalanceDetailsState extends State<UserBalanceDetails> with SingleTick
 
   @override
   Widget build(BuildContext context) {
+    HomeBloc homeBloc = context.read<HomeBloc>();
+
     return Column(
       children: [
         SizedBox(
@@ -37,7 +42,10 @@ class _UserBalanceDetailsState extends State<UserBalanceDetails> with SingleTick
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: SavingDetailsCard(
-                  balance: "\$20000",
+                  balance: "20000",
+                  onClick: (){
+                    homeBloc.updateTabIndex(1);
+                  },
                   topRightWidget: ElevatedButton(
                     onPressed: (){},
                     child: Row(

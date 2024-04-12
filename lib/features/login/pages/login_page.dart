@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pret_piggies/features/signup/pages/registration_page.dart';
 import 'package:pret_piggies/features/signup/widgets/custom_text_field.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key, });
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
 
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

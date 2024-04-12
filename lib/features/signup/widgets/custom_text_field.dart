@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -5,10 +7,14 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.label,
     required this.onChanged,
+    this.textInputType,
+    this.isAPassword = false,
   });
 
   final String label;
   final Function(String newText) onChanged;
+  final TextInputType? textInputType;
+  final bool isAPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +40,8 @@ class CustomTextField extends StatelessWidget {
               hintText: label,
             ),
             onChanged: onChanged,
+            keyboardType: textInputType,
+            obscureText: isAPassword,
           ),
         )
       ],

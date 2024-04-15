@@ -32,11 +32,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
         // TODO: Handle this case.
         break;
       case SignupStatus.Successful:
-        Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return HomeScreen();
-            }));
+        WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+          Navigator.pushReplacement(
+              context,
+              HomeScreen.route());
+          bloc.reset;
+        });
         break;
       case SignupStatus.Error:
         WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -54,7 +55,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
               Align(
                 alignment: Alignment.topLeft,
                 child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _navigateToLoginPage(context);
+                    },
                     icon: Icon(
                       Icons.cancel_outlined,
                       size: 45,
@@ -117,7 +120,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           .primaryColor,
                       foregroundColor: Colors.white
                   ),
-                  onPressed: () {
+                  onPressed: state.signupStatus == SignupStatus.Processing ? null : () {
                     if (_isUserInputValid()) {
                     bloc.registerUser(
                         fullName: fullName,
@@ -126,14 +129,18 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     );
                     }
                   },
-                  child: Text("CREATE ACCOUNT")
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (state.signupStatus == SignupStatus.Processing)
+                        CircularProgressIndicator(),
+                      Text("CREATE ACCOUNT"),
+                    ],
+                  )
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) {
-                        return LoginPage();
-                      },));
+                  _navigateToLoginPage(context);
                 },
                 child: Text("Already have an account? Login"),
               )
@@ -141,6 +148,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
           ),
         )
     );
+  }
+
+  void _navigateToLoginPage(BuildContext context) {
+    Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) {
+          return LoginPage();
+        },));
   }
     bool _isUserInputValid(){
     String errorMessage = "";

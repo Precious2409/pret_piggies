@@ -9,6 +9,9 @@ import 'package:pret_piggies/features/invest/pages/invest_view.dart';
 import 'package:pret_piggies/features/savings/pages/savings_view.dart';
 
 class HomeScreen extends StatefulWidget{
+
+  static route()=> MaterialPageRoute(builder: (context) => HomeScreen());
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }

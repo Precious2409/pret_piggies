@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pret_piggies/features/account/widgets/account_settings_items.dart';
+import 'package:pret_piggies/features/home/pages/home_view.dart';
+import 'package:pret_piggies/features/login/bloc/login_bloc.dart';
+import 'package:pret_piggies/features/login/pages/login_page.dart';
 
 class AccountSettings2 extends StatelessWidget {
   const AccountSettings2 ({
@@ -54,7 +58,10 @@ class AccountSettings2 extends StatelessWidget {
               color: Colors.red.shade700
             ),
             ),
-
+          onTap: (){
+              context.read<LoginBloc>().logout();
+              Navigator.pushReplacement(context, LoginPage.route());
+          },
           )
 
         ],

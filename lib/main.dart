@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pret_piggies/features/home/bloc/home_bloc.dart';
 import 'package:pret_piggies/features/home/pages/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pret_piggies/features/login/bloc/login_bloc.dart';
 import 'package:pret_piggies/features/login/pages/login_page.dart';
 import 'package:pret_piggies/features/signup/bloc/signup_bloc.dart';
 import 'firebase_options.dart';
 
 void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
         providers: [
           BlocProvider(create: (context)=>HomeBloc()),
           BlocProvider(create: (context)=>SignupBloc()),
+          BlocProvider(create: (context)=>LoginBloc()),
         ],
     child: MaterialApp(
         title: 'Flutter Demo',

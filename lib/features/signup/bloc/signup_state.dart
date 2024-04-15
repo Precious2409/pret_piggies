@@ -13,7 +13,8 @@ class SignupState extends Equatable{
   static SignupState empty = SignupState(
       fullName: "",
       emailAddress: "",
-      password: ""
+      password: "",
+    signupStatus: SignupStatus.Initial
   );
 
   final String fullName;

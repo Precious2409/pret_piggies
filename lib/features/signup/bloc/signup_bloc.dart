@@ -8,6 +8,10 @@ class SignupBloc extends Cubit<SignupState>{
   SignupBloc(): super(SignupState.empty);
 
   SignupRepository signupRepository = SignupRepository();
+  
+  void reset(){
+    emit(SignupState.empty);
+  }
 
   void registerUser({
     required String fullName,
